@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Иван Сенчуков](https://up.htmlacademy.ru/react/4/user/469173).
-* Наставник: `Неизвестно`.
+* Наставник: [Павел Иванов](https://htmlacademy.ru/profile/id1477929).
 
 ---
 
