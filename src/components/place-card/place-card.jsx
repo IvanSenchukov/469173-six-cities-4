@@ -14,7 +14,7 @@ const PlaceCard = (props) => {
   const rating = 100 * props.rating / 5;
 
   const ratingStyle = {
-    width: rating + `%`
+    width: `${rating}%`
   };
 
   let bookmarkButton = null;
@@ -80,8 +80,8 @@ PlaceCard.propTypes = {
   imageSrc: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   period: PropTypes.string.isRequired,
-  addedToBookmarks: PropTypes.boolean,
-  premium: PropTypes.boolean,
+  addedToBookmarks: PropTypes.bool,
+  premium: PropTypes.bool,
   rating: PropTypes.number.isRequired
 };
 
