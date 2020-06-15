@@ -105,18 +105,7 @@ const Main = (props) => {
                   </ul>
                 </form>
                 <div className="cities__places-list places__list tabs__content">
-                  {props.availableOffers.map((offer) => (<PlaceCard
-                    key={offer.id}
-                    name={offer.name}
-                    type={offer.type}
-                    reference={offer.reference}
-                    imageSrc={offer.imageSrc}
-                    price={offer.price}
-                    period={offer.period}
-                    addedToBookmarks={offer.addedToBookmarks}
-                    premium={offer.premium}
-                    rating={offer.rating}
-                  />)
+                  {props.availableOffers.map((offer) => (<PlaceCard key={offer.id} {...offer}/>)
                   )}
                 </div>
               </section>
@@ -131,7 +120,7 @@ const Main = (props) => {
   );
 };
 
-Main.PropTypes = {
+Main.propTypes = {
   foundPlacesCount: PropTypes.number.isRequired,
   availableOffers: PropTypes.arrayOf(
       PropTypes.shape({

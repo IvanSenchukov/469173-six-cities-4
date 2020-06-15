@@ -8,7 +8,7 @@ const App = (props) => {
   );
 };
 
-App.PropTypes = {
+App.propTypes = {
   foundPlacesCount: PropTypes.number.isRequired,
   availableOffers: PropTypes.arrayOf(
       PropTypes.shape({
