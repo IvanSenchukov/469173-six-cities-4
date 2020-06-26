@@ -106,7 +106,7 @@ const Main = (props) => {
                 </form>
                 <div className="cities__places-list places__list tabs__content">
                   {props.availableOffers && props.availableOffers.map((offer) => (
-                    <PlaceCard key={offer.id} {...offer} onPlaceCardNameClick={props.onPlaceCardNameClick}/>)
+                    <PlaceCard key={offer.id} {...offer} onNameClick={props.onPlaceCardNameClick}/>)
                   )}
                 </div>
               </section>
