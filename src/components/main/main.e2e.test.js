@@ -9,17 +9,17 @@ Enzyme.configure({
 
 describe(`Main Component`, () => {
   it(`should handle click on header logo`, function () {
-    const onTitleClick = jest.fn();
+    const handleTitleClick = jest.fn();
 
     const mainComponent = shallow(
-        <Main foundPlacesCount={2} headerLogoClickHandler={onTitleClick}/>
+        <Main foundPlacesCount={2} onHeaderLogoClick={handleTitleClick}/>
     );
 
     const mainComponentHeaderLogo = mainComponent.find(`a.header__logo-link`);
 
-    mainComponentHeaderLogo.props().onClick();
+    mainComponentHeaderLogo.simulate(`click`, {preventDefault() {}});
 
-    expect(onTitleClick.mock.calls.length).toBe(1);
+    expect(handleTitleClick).toHaveBeenCalledTimes(1);
   });
 
 });
