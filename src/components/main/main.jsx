@@ -27,7 +27,7 @@ const Main = (props) => {
           <div className="container">
             <div className="header__wrapper">
               <div className="header__left">
-                <a className="header__logo-link header__logo-link--active">
+                <a className="header__logo-link header__logo-link--active" onClick={props.headerLogoClickHandler}>
                   <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"></img>
                 </a>
               </div>
@@ -135,7 +135,8 @@ Main.propTypes = {
         premium: PropTypes.boolean,
         rating: PropTypes.number.isRequired,
       })
-  )
+  ),
+  headerLogoClickHandler: PropTypes.func.isRequired
 };
 
 export default Main;
