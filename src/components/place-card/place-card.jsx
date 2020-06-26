@@ -63,7 +63,7 @@ const PlaceCard = (props) => {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name">
+        <h2 className="place-card__name" onClick={props.onPlaceCardNameClick}>
           <a href={reference}>{name}</a>
         </h2>
         <p className="place-card__type">{type}</p>
@@ -82,7 +82,8 @@ PlaceCard.propTypes = {
   period: PropTypes.string.isRequired,
   addedToBookmarks: PropTypes.bool,
   premium: PropTypes.bool,
-  rating: PropTypes.number.isRequired
+  rating: PropTypes.number.isRequired,
+  onPlaceCardNameClick: PropTypes.func.isRequired
 };
 
 export default PlaceCard;
