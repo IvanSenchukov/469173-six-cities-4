@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 const PlaceCard = (props) => {
 
-  const name = props.name;
-  const type = props.type;
-  const reference = props.reference;
-  const imageSrc = props.imageSrc;
-  const price = props.price;
-  const period = props.period;
-  const addedToBookmarks = props.addedToBookmarks || false;
-  const premium = props.premium || false;
-  const rating = 100 * props.rating / 5;
+  const name = props.offer.name;
+  const type = props.offer.type;
+  const reference = props.offer.reference;
+  const imageSrc = props.offer.imageSrc;
+  const price = props.offer.price;
+  const period = props.offer.period;
+  const addedToBookmarks = props.offer.addedToBookmarks || false;
+  const premium = props.offer.premium || false;
+  const rating = 100 * props.offer.rating / 5;
 
   const ratingStyle = {
     width: `${rating}%`
@@ -39,7 +39,13 @@ const PlaceCard = (props) => {
 
 
   return (
-    <article className="cities__place-card place-card">
+    <article
+      className="cities__place-card place-card"
+      onMouseOver={
+        () => {
+          props.onMouseOver(props.offer);
+        }}
+    >
 
       {premium && <div className="place-card__mark">
         <span>Premium</span>
@@ -73,17 +79,22 @@ const PlaceCard = (props) => {
 };
 
 PlaceCard.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  reference: PropTypes.string.isRequired,
-  imageSrc: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  period: PropTypes.string.isRequired,
-  addedToBookmarks: PropTypes.bool,
-  premium: PropTypes.bool,
-  rating: PropTypes.number.isRequired,
-  onNameClick: PropTypes.func.isRequired
+  offer: PropTypes.shape(
+      {
+        id: PropTypes.string,
+        name: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        reference: PropTypes.string.isRequired,
+        imageSrc: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        period: PropTypes.string.isRequired,
+        addedToBookmarks: PropTypes.bool,
+        premium: PropTypes.bool,
+        rating: PropTypes.number.isRequired
+      }
+  ),
+  onNameClick: PropTypes.func.isRequired,
+  onMouseOver: PropTypes.func.isRequired
 };
 
 export default PlaceCard;

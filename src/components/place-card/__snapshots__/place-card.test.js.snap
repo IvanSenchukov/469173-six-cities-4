@@ -3,6 +3,7 @@
 exports[`renders correctly when added to bookmarks 1`] = `
 <article
   className="cities__place-card place-card"
+  onMouseOver={[Function]}
 >
   <div
     className="cities__image-wrapper place-card__image-wrapper"
@@ -83,6 +84,7 @@ exports[`renders correctly when added to bookmarks 1`] = `
     </div>
     <h2
       className="place-card__name"
+      onClick={[MockFunction]}
     >
       <a
         href="PlaceCard.reference"
@@ -102,6 +104,7 @@ exports[`renders correctly when added to bookmarks 1`] = `
 exports[`renders correctly when offer is premium 1`] = `
 <article
   className="cities__place-card place-card"
+  onMouseOver={[Function]}
 >
   <div
     className="place-card__mark"
@@ -189,6 +192,7 @@ exports[`renders correctly when offer is premium 1`] = `
     </div>
     <h2
       className="place-card__name"
+      onClick={[MockFunction]}
     >
       <a
         href="PlaceCard.reference"
@@ -208,6 +212,7 @@ exports[`renders correctly when offer is premium 1`] = `
 exports[`renders correctly with full rating 1`] = `
 <article
   className="cities__place-card place-card"
+  onMouseOver={[Function]}
 >
   <div
     className="cities__image-wrapper place-card__image-wrapper"
@@ -288,6 +293,7 @@ exports[`renders correctly with full rating 1`] = `
     </div>
     <h2
       className="place-card__name"
+      onClick={[MockFunction]}
     >
       <a
         href="PlaceCard.reference"
@@ -307,6 +313,7 @@ exports[`renders correctly with full rating 1`] = `
 exports[`renders correctly with only required fields 1`] = `
 <article
   className="cities__place-card place-card"
+  onMouseOver={[Function]}
 >
   <div
     className="cities__image-wrapper place-card__image-wrapper"
@@ -387,6 +394,7 @@ exports[`renders correctly with only required fields 1`] = `
     </div>
     <h2
       className="place-card__name"
+      onClick={[MockFunction]}
     >
       <a
         href="PlaceCard.reference"

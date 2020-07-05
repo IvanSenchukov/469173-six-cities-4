@@ -53,7 +53,7 @@ it(`should render correctly with only required props`, function () {
 
 it(`should render correctly available offers`, function () {
   const tree = renderer
-    .create(<Main foundPlacesCount={3} availableOffers={DEFAULT_OFFERS}/>)
+    .create(<Main foundPlacesCount={3} offers={DEFAULT_OFFERS} onPlaceCardNameClick={jest.fn()}/>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
