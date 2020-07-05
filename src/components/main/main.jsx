@@ -105,7 +105,7 @@ const Main = (props) => {
                   </ul>
                 </form>
                 <div className="cities__places-list places__list tabs__content">
-                  {props.availableOffers && props.availableOffers.map((offer) => (
+                  {props.offers && props.offers.map((offer) => (
                     <PlaceCard key={offer.id} {...offer} onNameClick={props.onPlaceCardNameClick}/>)
                   )}
                 </div>
@@ -123,7 +123,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   foundPlacesCount: PropTypes.number.isRequired,
-  availableOffers: PropTypes.arrayOf(
+  offers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,
         name: PropTypes.string.isRequired,
