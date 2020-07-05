@@ -55,7 +55,7 @@ describe(`Main Component`, () => {
     const mainComponent = mount(
         <Main
           foundPlacesCount={2}
-          availableOffers={DEFAULT_OFFERS}
+          offers={DEFAULT_OFFERS}
           onPlaceCardNameClick={handlePlaceCardNameClick}
         />
     );

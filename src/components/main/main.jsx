@@ -5,6 +5,9 @@ import PlaceCard from "../place-card/place-card.jsx";
 const Main = (props) => {
 
   const {foundPlacesCount} = props;
+  const handlePlaceCardMouseOver = () => {
+
+  };
 
   return (
     <React.Fragment>
@@ -106,7 +109,12 @@ const Main = (props) => {
                 </form>
                 <div className="cities__places-list places__list tabs__content">
                   {props.offers && props.offers.map((offer) => (
-                    <PlaceCard key={offer.id} {...offer} onNameClick={props.onPlaceCardNameClick}/>)
+                    <PlaceCard
+                      key={offer.id}
+                      offer={offer}
+                      onNameClick={props.onPlaceCardNameClick}
+                      onMouseOver={handlePlaceCardMouseOver}
+                    />)
                   )}
                 </div>
               </section>
