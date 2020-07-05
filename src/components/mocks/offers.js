@@ -24,6 +24,18 @@ export default [
     rating: 4,
   },
   {
+    id: `2`,
+    name: `Some really good offer`,
+    type: `Apartment`,
+    reference: `#`,
+    imageSrc: `img/apartment-01.jpg`,
+    price: 100,
+    period: `night`,
+    addedToBookmarks: true,
+    premium: true,
+    rating: 5,
+  },
+  {
     id: `3`,
     name: `Nice, cozy, warm big bed apartment`,
     type: `Apartment`,
