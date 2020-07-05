@@ -19,6 +19,7 @@ const DEFAULT_OFFERS = [{
   price: DEFAULT_PRICE,
   period: DEFAULT_PERIOD,
   rating: DEFAULT_RATING,
+  coordinates: [12.34, 56.78]
 },
 {
   id: `1`,
@@ -30,6 +31,7 @@ const DEFAULT_OFFERS = [{
   period: `${DEFAULT_PERIOD}_1`,
   rating: 1,
   addedToBookmarks: true,
+  coordinates: [12.34, 56.78]
 },
 {
   id: `2`,
@@ -41,6 +43,7 @@ const DEFAULT_OFFERS = [{
   period: `${DEFAULT_PERIOD}_2`,
   rating: 3,
   premium: true,
+  coordinates: [12.34, 56.78]
 }];
 
 

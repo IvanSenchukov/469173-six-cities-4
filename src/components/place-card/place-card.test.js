@@ -9,7 +9,8 @@ const offer = {
   imageSrc: `PlaceCard.imageSrc`,
   price: 90,
   period: `PlaceCard.period`,
-  rating: 4
+  coordinates: [12.34, 56.78],
+  rating: 4,
 };
 
 const offerRating5 = {
@@ -19,7 +20,8 @@ const offerRating5 = {
   imageSrc: `PlaceCard.imageSrc`,
   price: 90,
   period: `PlaceCard.period`,
-  rating: 5
+  coordinates: [12.34, 56.78],
+  rating: 5,
 };
 
 const offerAddedToBookmarks = {
@@ -30,7 +32,8 @@ const offerAddedToBookmarks = {
   price: 90,
   period: `PlaceCard.period`,
   rating: 4,
-  addedToBookmarks: true
+  coordinates: [12.34, 56.78],
+  addedToBookmarks: true,
 };
 
 const offerPremium = {
@@ -41,6 +44,7 @@ const offerPremium = {
   price: 90,
   period: `PlaceCard.period`,
   rating: 4,
+  coordinates: [12.34, 56.78],
   premium: true
 };
 

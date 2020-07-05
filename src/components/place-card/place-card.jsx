@@ -86,7 +86,7 @@ PlaceCard.propTypes = {
         addedToBookmarks: PropTypes.bool,
         premium: PropTypes.bool,
         rating: PropTypes.number.isRequired,
-        coordinates: [PropTypes.number.isRequired, PropTypes.number.isRequired]
+        coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
       }
   ).isRequired,
   onNameClick: PropTypes.func.isRequired,

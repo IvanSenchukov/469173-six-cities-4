@@ -8,9 +8,7 @@ class CitiesMap extends React.PureComponent {
 
   constructor(props) {
     super(props);
-    this.state = {
-      mapRef: React.createRef()
-    };
+    this.mapRef = React.createRef();
   }
 
   componentDidMount() {
@@ -22,7 +20,7 @@ class CitiesMap extends React.PureComponent {
     });
 
     const zoom = 12;
-    const map = leaflet.map(`map`, {
+    const map = leaflet.map(this.mapRef.current, {
       center: city,
       zoom,
       zoomControl: false,
@@ -49,7 +47,7 @@ class CitiesMap extends React.PureComponent {
   render() {
     return (
       <section className="cities__map map">
-        <div id={`map`} ref={this.state.mapRef} style={{height: `100%`}}></div>
+        <div id={`map`} ref={this.mapRef} style={{height: `100%`}}></div>
       </section>
     );
   }
@@ -68,7 +66,7 @@ CitiesMap.propTypes = {
         addedToBookmarks: PropTypes.boolean,
         premium: PropTypes.boolean,
         rating: PropTypes.number.isRequired,
-        coordinates: [PropTypes.number.isRequired, PropTypes.number.isRequired]
+        coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
       })
   )
 };

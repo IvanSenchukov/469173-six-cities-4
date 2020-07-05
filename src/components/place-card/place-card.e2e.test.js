@@ -15,7 +15,8 @@ const mock = {
     imageSrc: `PlaceCard.imageSrc`,
     price: 90,
     period: `PlaceCard.period`,
-    rating: 4
+    rating: 4,
+    coordinates: [12.34, 56.78]
   }
 };
 

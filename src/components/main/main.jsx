@@ -132,7 +132,7 @@ Main.propTypes = {
         addedToBookmarks: PropTypes.boolean,
         premium: PropTypes.boolean,
         rating: PropTypes.number.isRequired,
-        coordinates: [PropTypes.number.isRequired, PropTypes.number.isRequired]
+        coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
       })
   ),
   onPlaceCardNameClick: PropTypes.func.isRequired
