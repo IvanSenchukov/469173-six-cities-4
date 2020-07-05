@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Main from "./main.jsx";
+import PlacesList from './places-list.jsx';
 
 const DEFAULT_NAME = `PlaceCard.name`;
 const DEFAULT_TYPE = `PlaceCard.type`;
@@ -43,17 +43,16 @@ const DEFAULT_OFFERS = [{
   premium: true,
 }];
 
-
 it(`should render correctly with only required props`, function () {
   const tree = renderer
-    .create(<Main foundPlacesCount={11} onPlaceCardNameClick={jest.fn()}/>)
+    .create(<PlacesList onPlaceCardNameClick={jest.fn()}/>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 it(`should render correctly available offers`, function () {
   const tree = renderer
-    .create(<Main foundPlacesCount={3} offers={DEFAULT_OFFERS} onPlaceCardNameClick={jest.fn()}/>)
+    .create(<PlacesList onPlaceCardNameClick={jest.fn()} offers={DEFAULT_OFFERS}/>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

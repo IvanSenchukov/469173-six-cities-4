@@ -267,6 +267,7 @@ Array [
             >
               <article
                 className="cities__place-card place-card"
+                onMouseOver={[Function]}
               >
                 <div
                   className="cities__image-wrapper place-card__image-wrapper"
@@ -347,6 +348,7 @@ Array [
                   </div>
                   <h2
                     className="place-card__name"
+                    onClick={[MockFunction]}
                   >
                     <a
                       href="PlaceCard.reference"
@@ -363,6 +365,7 @@ Array [
               </article>
               <article
                 className="cities__place-card place-card"
+                onMouseOver={[Function]}
               >
                 <div
                   className="cities__image-wrapper place-card__image-wrapper"
@@ -443,6 +446,7 @@ Array [
                   </div>
                   <h2
                     className="place-card__name"
+                    onClick={[MockFunction]}
                   >
                     <a
                       href="PlaceCard.reference_1"
@@ -459,6 +463,7 @@ Array [
               </article>
               <article
                 className="cities__place-card place-card"
+                onMouseOver={[Function]}
               >
                 <div
                   className="place-card__mark"
@@ -546,6 +551,7 @@ Array [
                   </div>
                   <h2
                     className="place-card__name"
+                    onClick={[MockFunction]}
                   >
                     <a
                       href="PlaceCard.reference_2"
