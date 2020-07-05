@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PlaceCard from "../place-card/place-card.jsx";
+import PlacesList from "../places-list/places-list.jsx";
 
 const Main = (props) => {
 
   const {foundPlacesCount} = props;
-  const handlePlaceCardMouseOver = () => {
-
-  };
 
   return (
     <React.Fragment>
@@ -107,16 +104,7 @@ const Main = (props) => {
                     <li className="places__option" tabIndex="0">Top rated first</li>
                   </ul>
                 </form>
-                <div className="cities__places-list places__list tabs__content">
-                  {props.offers && props.offers.map((offer) => (
-                    <PlaceCard
-                      key={offer.id}
-                      offer={offer}
-                      onNameClick={props.onPlaceCardNameClick}
-                      onMouseOver={handlePlaceCardMouseOver}
-                    />)
-                  )}
-                </div>
+                <PlacesList offers={props.offers} onPlaceCardNameClick={props.onPlaceCardNameClick}/>
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map"></section>
