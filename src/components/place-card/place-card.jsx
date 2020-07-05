@@ -92,7 +92,7 @@ PlaceCard.propTypes = {
         premium: PropTypes.bool,
         rating: PropTypes.number.isRequired
       }
-  ),
+  ).isRequired,
   onNameClick: PropTypes.func.isRequired,
   onMouseOver: PropTypes.func.isRequired
 };
