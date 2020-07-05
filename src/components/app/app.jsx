@@ -4,13 +4,13 @@ import Main from "../main/main.jsx";
 
 const App = (props) => {
   return (
-    <Main foundPlacesCount={props.foundPlacesCount} availableOffers={props.availableOffers}/>
+    <Main foundPlacesCount={props.foundPlacesCount} offers={props.offers}/>
   );
 };
 
 App.propTypes = {
   foundPlacesCount: PropTypes.number.isRequired,
-  availableOffers: PropTypes.arrayOf(
+  offers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,
         name: PropTypes.string.isRequired,
