@@ -4,7 +4,7 @@ import Main from "../main/main.jsx";
 
 const App = (props) => {
   return (
-    <Main foundPlacesCount={props.foundPlacesCount} offers={props.offers}/>
+    <Main foundPlacesCount={props.foundPlacesCount} offers={props.offers} onPlaceCardNameClick={props.onPlaceCardNameClick}/>
   );
 };
 
@@ -23,7 +23,8 @@ App.propTypes = {
         premium: PropTypes.boolean,
         rating: PropTypes.number.isRequired,
       })
-  )
+  ),
+  onPlaceCardNameClick: PropTypes.func.isRequired
 };
 
 export default App;
