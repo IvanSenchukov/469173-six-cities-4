@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PlacesList from "../places-list/places-list.jsx";
+import CitiesMap from "../cities-map/cities-map.jsx";
 
 const Main = (props) => {
 
@@ -107,7 +108,7 @@ const Main = (props) => {
                 <PlacesList offers={props.offers} onPlaceCardNameClick={props.onPlaceCardNameClick}/>
               </section>
               <div className="cities__right-section">
-                <section className="cities__map map"></section>
+                <CitiesMap offers={props.offers}/>
               </div>
             </div>
           </div>
@@ -131,6 +132,7 @@ Main.propTypes = {
         addedToBookmarks: PropTypes.boolean,
         premium: PropTypes.boolean,
         rating: PropTypes.number.isRequired,
+        coordinates: [PropTypes.number.isRequired, PropTypes.number.isRequired]
       })
   ),
   onPlaceCardNameClick: PropTypes.func.isRequired
