@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 
 const PlaceCard = (props) => {
 
-  const name = props.offer.name;
-  const type = props.offer.type;
-  const reference = props.offer.reference;
-  const imageSrc = props.offer.imageSrc;
-  const price = props.offer.price;
-  const period = props.offer.period;
+  const {name, type, reference, imageSrc, price, period} = props.offer;
   const addedToBookmarks = props.offer.addedToBookmarks || false;
   const premium = props.offer.premium || false;
   const rating = 100 * props.offer.rating / 5;
