@@ -9,6 +9,6 @@ const settings = {
 };
 
 ReactDOM.render(
-    <App foundPlacesCount={settings.foundPlacesCount} offers={settings.offers}/>,
+    <App foundPlacesCount={settings.foundPlacesCount} offers={settings.offers} onPlaceCardNameClick={() => {}}/>,
     document.querySelector(`#root`)
 );
