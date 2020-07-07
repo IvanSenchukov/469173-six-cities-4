@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import PlaceCard from "../place-card/place-card.jsx";
 import PropTypes from "prop-types";
 
