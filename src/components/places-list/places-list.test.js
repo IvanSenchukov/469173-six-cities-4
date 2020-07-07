@@ -1,6 +1,6 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import PlacesList from './places-list.jsx';
+import React from "react";
+import renderer from "react-test-renderer";
+import PlacesList from "./places-list.jsx";
 
 const DEFAULT_NAME = `PlaceCard.name`;
 const DEFAULT_TYPE = `PlaceCard.type`;
