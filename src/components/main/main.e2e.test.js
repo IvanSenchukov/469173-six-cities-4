@@ -20,6 +20,7 @@ const DEFAULT_OFFERS = [{
   price: DEFAULT_PRICE,
   period: DEFAULT_PERIOD,
   rating: DEFAULT_RATING,
+  coordinates: [52.3909553943508, 4.929309666406198]
 },
 {
   id: `1`,
@@ -31,6 +32,7 @@ const DEFAULT_OFFERS = [{
   period: `${DEFAULT_PERIOD}_1`,
   rating: 1,
   addedToBookmarks: true,
+  coordinates: [52.3809553943508, 4.939309666406198]
 },
 {
   id: `2`,
@@ -42,6 +44,7 @@ const DEFAULT_OFFERS = [{
   period: `${DEFAULT_PERIOD}_2`,
   rating: 3,
   premium: true,
+  coordinates: [52.369553943508, 4.85309666406198]
 }];
 
 Enzyme.configure({

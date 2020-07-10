@@ -12,6 +12,11 @@ class CitiesMap extends React.PureComponent {
   }
 
   componentDidMount() {
+
+    if (!this.mapRef.current) {
+      return;
+    }
+
     const city = COORDINATES_AMSTERDAM;
 
     const icon = leaflet.icon({
