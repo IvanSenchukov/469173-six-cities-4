@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 
 const Main = (props) => {
 
-  const {foundPlacesCount, selectCity} = props;
+  const {foundPlacesCount, selectedCity, selectCity} = props;
 
   const handleCityClick = (city) => {
     selectCity(city);
@@ -95,7 +95,7 @@ const Main = (props) => {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{foundPlacesCount} places to stay in Amsterdam</b>
+                <b className="places__found">{foundPlacesCount} places to stay in {selectedCity}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex="0">
@@ -111,7 +111,7 @@ const Main = (props) => {
                     <li className="places__option" tabIndex="0">Top rated first</li>
                   </ul>
                 </form>
-                <PlacesList offers={props.offers} onPlaceCardNameClick={props.onPlaceCardNameClick}/>
+                <PlacesList offers={props.offers} selectedCity={selectedCity} onPlaceCardNameClick={props.onPlaceCardNameClick}/>
               </section>
               <div className="cities__right-section">
                 <CitiesMap offers={props.offers}/>
@@ -126,6 +126,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   foundPlacesCount: PropTypes.number.isRequired,
+  selectedCity: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,
@@ -141,7 +142,8 @@ Main.propTypes = {
         coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
       })
   ),
-  onPlaceCardNameClick: PropTypes.func.isRequired
+  onPlaceCardNameClick: PropTypes.func.isRequired,
+  selectCity: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {

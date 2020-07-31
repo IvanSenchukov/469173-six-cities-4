@@ -13,26 +13,33 @@ class PlacesList extends React.PureComponent {
 
   render() {
 
+    const {offers, selectedCity, onPlaceCardNameClick} = this.props;
+
     const handlePlaceCardMouseOver = (offer) => {
       this.setState({activeCard: offer ? offer : {}});
     };
 
     return (
       <div className="cities__places-list places__list tabs__content">
-        {this.props.offers && this.props.offers.map((offer) => (
-          <PlaceCard
-            key={offer.id}
-            offer={offer}
-            onNameClick={this.props.onPlaceCardNameClick}
-            onMouseOver={handlePlaceCardMouseOver}
-          />)
-        )}
+        {offers && offers
+          .filter((offer) => {
+            return offer.city === selectedCity;
+          })
+          .map((offer) => (
+            <PlaceCard
+              key={offer.id}
+              offer={offer}
+              onNameClick={onPlaceCardNameClick}
+              onMouseOver={handlePlaceCardMouseOver}
+            />)
+          )}
       </div>
     );
   }
 }
 
 PlacesList.propTypes = {
+  selectedCity: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,
