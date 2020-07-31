@@ -2,10 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import PlacesList from "../places-list/places-list.jsx";
 import CitiesMap from "../cities-map/cities-map.jsx";
+import {actionCreators} from "../../reducer";
+import {connect} from "react-redux";
 
 const Main = (props) => {
 
-  const {foundPlacesCount} = props;
+  const {foundPlacesCount, selectCity} = props;
+
+  const handleCityClick = (city) => {
+    selectCity(city);
+  };
 
   return (
     <React.Fragment>
@@ -53,32 +59,32 @@ const Main = (props) => {
             <section className="locations container">
               <ul className="locations__list tabs__list">
                 <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
+                  <a className="locations__item-link tabs__item" onClick={() => handleCityClick(`Paris`)}>
                     <span>Paris</span>
                   </a>
                 </li>
                 <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
+                  <a className="locations__item-link tabs__item" onClick={() => handleCityClick(`Cologne`)}>
                     <span>Cologne</span>
                   </a>
                 </li>
                 <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
+                  <a className="locations__item-link tabs__item" onClick={() => handleCityClick(`Brussels`)}>
                     <span>Brussels</span>
                   </a>
                 </li>
                 <li className="locations__item">
-                  <a className="locations__item-link tabs__item tabs__item--active">
+                  <a className="locations__item-link tabs__item tabs__item--active" onClick={() => handleCityClick(`Amsterdam`)}>
                     <span>Amsterdam</span>
                   </a>
                 </li>
                 <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
+                  <a className="locations__item-link tabs__item" onClick={() => handleCityClick(`Hamburg`)}>
                     <span>Hamburg</span>
                   </a>
                 </li>
                 <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
+                  <a className="locations__item-link tabs__item" onClick={() => handleCityClick(`Dusseldorf`)}>
                     <span>Dusseldorf</span>
                   </a>
                 </li>
@@ -138,4 +144,21 @@ Main.propTypes = {
   onPlaceCardNameClick: PropTypes.func.isRequired
 };
 
-export default Main;
+const mapStateToProps = (state) => {
+  return {
+    offers: state.offers,
+    cities: state.cities,
+    selectedCity: state.selectedCity
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    selectCity(city) {
+      dispatch(actionCreators.selectCity(city));
+    }
+  };
+};
+
+export {Main};
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

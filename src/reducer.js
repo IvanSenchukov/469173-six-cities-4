@@ -1,15 +1,32 @@
+import cities from "./mocks/cities";
+import offers from "./mocks/offers";
+import {extend} from "./utils";
+
 const initialState = {
-  city: {
-    name: `Amsterdam`,
-    coordinates: [52.38333, 4.9],
-  },
+  cities,
+  offers,
+  selectedCity: `Amsterdam`
 };
 
-const actionType = {};
+const actionType = {
+  SELECT_CITY: `CITIES/SELECT_CITY`
+};
 
-const actionCreators = {};
+const actionCreators = {
+  selectCity: (city) => {
+    return {
+      type: actionType.SELECT_CITY,
+      payload: city
+    };
+  }
+};
 
 const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case (actionType.SELECT_CITY) : {
+      return extend(state, {selectedCity: action.payload});
+    }
+  }
   return state;
 };
 
