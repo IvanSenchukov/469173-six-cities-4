@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CitiesList Snapshots should renders correctly with six available cities and selected city 1`] = `
+exports[`CitiesList Snapshots should renders correctly with all given cities selected city 1`] = `
 <div
   className="tabs"
 >
@@ -82,33 +82,6 @@ exports[`CitiesList Snapshots should renders correctly with six available cities
           </span>
         </a>
       </li>
-    </ul>
-  </section>
-</div>
-`;
-
-exports[`CitiesList Snapshots should renders correctly with two available cities and selected city 1`] = `
-<div
-  className="tabs"
->
-  <section
-    className="locations container"
-  >
-    <ul
-      className="locations__list tabs__list"
-    >
-      <li
-        className="locations__item"
-      >
-        <a
-          className="locations__item-link tabs__item tabs__item--active"
-          onClick={[Function]}
-        >
-          <span>
-            Paris
-          </span>
-        </a>
-      </li>
       <li
         className="locations__item"
       >
@@ -117,7 +90,7 @@ exports[`CitiesList Snapshots should renders correctly with two available cities
           onClick={[Function]}
         >
           <span>
-            Amsterdam
+            Aalborg
           </span>
         </a>
       </li>

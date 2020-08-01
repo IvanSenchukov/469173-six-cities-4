@@ -5,16 +5,22 @@ import CitiesMap from "../cities-map/cities-map.jsx";
 import {actionCreators} from "../../reducer";
 import {connect} from "react-redux";
 import CitiesList from "../cities-list/cities-list.jsx";
-import {filterSelectedCityOffers} from "./main-helper";
+import {
+  filterCitiesByExistanceInOffers,
+  filterSelectedCityOffers,
+  getSelectedCityOrFirstAvailable,
+} from "./main-helper";
 
 const Main = (props) => {
 
-  const {selectedCity, selectCity, cities, offers} = props;
+  const {selectCity, cities, offers} = props;
 
   const handleCityClick = (city) => {
     selectCity(city);
   };
 
+  const citiesWithExistedOffers = cities.filter(filterCitiesByExistanceInOffers(offers));
+  const selectedCity = getSelectedCityOrFirstAvailable(props.selectedCity, citiesWithExistedOffers);
   const cityOffers = props.offers.filter(filterSelectedCityOffers(selectedCity));
 
   return (
@@ -59,12 +65,12 @@ const Main = (props) => {
 
         <main className="page__main page__main--index">
           <h1 className="visually-hidden">Cities</h1>
-          <CitiesList cities={cities} offers={offers} onCityClick={handleCityClick} selectedCity={selectedCity} />
+          <CitiesList cities={citiesWithExistedOffers} offers={offers} onCityClick={handleCityClick} selectedCity={selectedCity} />
           <div className="cities">
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{cityOffers.length} places to stay in {selectedCity}</b>
+                <b className="places__found">{cityOffers.length} places to stay in {selectedCity.name}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex="0">
@@ -94,7 +100,10 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  selectedCity: PropTypes.string.isRequired,
+  selectedCity: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
+  }),
   offers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,

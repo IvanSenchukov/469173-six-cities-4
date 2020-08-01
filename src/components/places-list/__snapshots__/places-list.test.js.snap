@@ -311,5 +311,24 @@ exports[`should render correctly available offers 1`] = `
 exports[`should render correctly with only required props 1`] = `
 <div
   className="cities__places-list places__list tabs__content"
-/>
+>
+  <section
+    className="cities__no-places"
+  >
+    <div
+      className="cities__status-wrapper tabs__content"
+    >
+      <b
+        className="cities__status"
+      >
+        No places to stay available
+      </b>
+      <p
+        className="cities__status-description"
+      >
+        We could not find any property availbale at the moment in Dusseldorf
+      </p>
+    </div>
+  </section>
+</div>
 `;

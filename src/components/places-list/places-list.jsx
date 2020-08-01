@@ -21,7 +21,7 @@ class PlacesList extends React.PureComponent {
 
     return (
       <div className="cities__places-list places__list tabs__content">
-        {offers.map((offer) => (
+        {offers && offers.map((offer) => (
           <PlaceCard
             key={offer.id}
             offer={offer}
@@ -29,6 +29,13 @@ class PlacesList extends React.PureComponent {
             onMouseOver={handlePlaceCardMouseOver}
           />)
         )}
+        {!offers && <section className="cities__no-places">
+          <div className="cities__status-wrapper tabs__content">
+            <b className="cities__status">No places to stay available</b>
+            <p className="cities__status-description">We could not find any property availbale at the moment in
+              Dusseldorf</p>
+          </div>
+        </section>}
       </div>
     );
   }

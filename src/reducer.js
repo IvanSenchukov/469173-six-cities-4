@@ -5,7 +5,7 @@ import {extend} from "./utils";
 const initialState = {
   cities,
   offers,
-  selectedCity: `Amsterdam`
+  selectedCity: undefined
 };
 
 const actionType = {
