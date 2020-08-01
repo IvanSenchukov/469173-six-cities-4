@@ -5,14 +5,17 @@ import CitiesMap from "../cities-map/cities-map.jsx";
 import {actionCreators} from "../../reducer";
 import {connect} from "react-redux";
 import CitiesList from "../cities-list/cities-list.jsx";
+import {filterSelectedCityOffers} from "./main-helper";
 
 const Main = (props) => {
 
-  const {foundPlacesCount, selectedCity, selectCity, cities, offers} = props;
+  const {selectedCity, selectCity, cities, offers} = props;
 
   const handleCityClick = (city) => {
     selectCity(city);
   };
+
+  const cityOffers = props.offers.filter(filterSelectedCityOffers(selectedCity));
 
   return (
     <React.Fragment>
@@ -61,7 +64,7 @@ const Main = (props) => {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{foundPlacesCount} places to stay in {selectedCity}</b>
+                <b className="places__found">{cityOffers.length} places to stay in {selectedCity}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex="0">
@@ -77,7 +80,7 @@ const Main = (props) => {
                     <li className="places__option" tabIndex="0">Top rated first</li>
                   </ul>
                 </form>
-                <PlacesList offers={props.offers} selectedCity={selectedCity} onPlaceCardNameClick={props.onPlaceCardNameClick}/>
+                <PlacesList offers={cityOffers} onPlaceCardNameClick={props.onPlaceCardNameClick}/>
               </section>
               <div className="cities__right-section">
                 <CitiesMap offers={props.offers}/>
@@ -105,8 +108,14 @@ Main.propTypes = {
         premium: PropTypes.boolean,
         rating: PropTypes.number.isRequired,
         coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
-      })
+      }).isRequired
   ),
+  cities: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
+      })
+  ).isRequired,
   onPlaceCardNameClick: PropTypes.func.isRequired,
   selectCity: PropTypes.func.isRequired
 };

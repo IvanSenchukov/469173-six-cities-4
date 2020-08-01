@@ -49,14 +49,14 @@ const DEFAULT_OFFERS = [{
 
 it(`should render correctly with available offers`, function () {
   const tree = renderer
-    .create(<App foundPlacesCount={22} offers={DEFAULT_OFFERS} onPlaceCardNameClick={jest.fn()}/>)
+    .create(<App onPlaceCardNameClick={jest.fn()}/>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 it(`should render correctly without available offers`, function () {
   const tree = renderer
-    .create(<App foundPlacesCount={0} onPlaceCardNameClick={jest.fn()}/>)
+    .create(<App onPlaceCardNameClick={jest.fn()}/>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
