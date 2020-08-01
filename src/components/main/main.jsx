@@ -4,10 +4,11 @@ import PlacesList from "../places-list/places-list.jsx";
 import CitiesMap from "../cities-map/cities-map.jsx";
 import {actionCreators} from "../../reducer";
 import {connect} from "react-redux";
+import CitiesList from "../cities-list/cities-list.jsx";
 
 const Main = (props) => {
 
-  const {foundPlacesCount, selectedCity, selectCity} = props;
+  const {foundPlacesCount, selectedCity, selectCity, cities, offers} = props;
 
   const handleCityClick = (city) => {
     selectCity(city);
@@ -55,42 +56,7 @@ const Main = (props) => {
 
         <main className="page__main page__main--index">
           <h1 className="visually-hidden">Cities</h1>
-          <div className="tabs">
-            <section className="locations container">
-              <ul className="locations__list tabs__list">
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" onClick={() => handleCityClick(`Paris`)}>
-                    <span>Paris</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" onClick={() => handleCityClick(`Cologne`)}>
-                    <span>Cologne</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" onClick={() => handleCityClick(`Brussels`)}>
-                    <span>Brussels</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item tabs__item--active" onClick={() => handleCityClick(`Amsterdam`)}>
-                    <span>Amsterdam</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" onClick={() => handleCityClick(`Hamburg`)}>
-                    <span>Hamburg</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" onClick={() => handleCityClick(`Dusseldorf`)}>
-                    <span>Dusseldorf</span>
-                  </a>
-                </li>
-              </ul>
-            </section>
-          </div>
+          <CitiesList cities={cities} offers={offers} onCityClick={handleCityClick} selectedCity={selectedCity} />
           <div className="cities">
             <div className="cities__places-container container">
               <section className="cities__places places">
@@ -125,7 +91,6 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  foundPlacesCount: PropTypes.number.isRequired,
   selectedCity: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(
       PropTypes.shape({
