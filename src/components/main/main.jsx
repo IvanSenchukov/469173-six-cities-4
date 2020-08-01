@@ -89,7 +89,7 @@ const Main = (props) => {
                 <PlacesList offers={cityOffers} onPlaceCardNameClick={props.onPlaceCardNameClick}/>
               </section>
               <div className="cities__right-section">
-                <CitiesMap offers={props.offers}/>
+                <CitiesMap offers={props.offers} selectedCity={selectedCity}/>
               </div>
             </div>
           </div>
